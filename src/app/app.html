@@ -1,0 +1,18 @@
+<main class="main-container">
+  <div class="glass-panel app-shell">
+    <header class="app-header">
+      <div class="logo">
+        <img src="/logo.png" alt="Ordo Logo" class="logo-img" />
+        <h1>Ordo</h1>
+        <div class="dot"></div>
+      </div>
+      <p class="date">{{ currentDate }}</p>
+    </header>
+
+    <div class="content-area">
+      <app-todo-input></app-todo-input>
+      <app-todo-list></app-todo-list>
+    </div>
+  </div>
+</main>
+<router-outlet></router-outlet>
