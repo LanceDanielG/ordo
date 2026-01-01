@@ -1,0 +1,40 @@
+<div
+  class="todo-item glass-panel group flex items-center p-4 mb-3 transition-all cursor-pointer hover:bg-white/5"
+  [class.opacity-60]="todo.completed"
+>
+  <div class="mr-4" (click)="onToggle()">
+    <div
+      class="w-6 h-6 border-2 border-blue-500 rounded-md flex items-center justify-center text-white transition-all"
+      [class.bg-blue-500]="todo.completed"
+    >
+      <span *ngIf="todo.completed" class="text-xs">✓</span>
+    </div>
+  </div>
+
+  <div class="flex-1 flex items-center gap-4">
+    <span
+      class="text-lg transition-all"
+      [class.line-through]="todo.completed"
+      [class.text-slate-400]="todo.completed"
+    >
+      {{ todo.text }}
+    </span>
+    <span
+      class="text-[0.7rem] px-2 py-0.5 rounded uppercase font-bold tracking-wider"
+      [ngClass]="{
+        'bg-red-500/20 text-red-400': todo.priority === 'high',
+        'bg-amber-500/20 text-amber-500': todo.priority === 'medium',
+        'bg-green-500/20 text-green-400': todo.priority === 'low'
+      }"
+    >
+      {{ todo.priority }}
+    </span>
+  </div>
+
+  <button
+    class="bg-transparent border-none text-slate-400 text-2xl cursor-pointer px-2 opacity-0 transition-opacity hover:text-red-500 group-hover:opacity-100"
+    (click)="onDelete($event)"
+  >
+    ×
+  </button>
+</div>

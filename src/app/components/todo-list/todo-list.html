@@ -1,0 +1,26 @@
+<div class="w-full max-w-2xl mx-auto px-4">
+  <div class="flex justify-between text-slate-400 mb-4 text-sm px-2">
+    <span>{{ store.pendingCount() }} tasks remaining</span>
+    <span *ngIf="store.completedCount() > 0" class="text-blue-400 font-medium">
+      {{ store.completedCount() }} completed
+    </span>
+  </div>
+
+  <div class="space-y-1" cdkDropList (cdkDropListDropped)="drop($event)">
+    <app-todo-item
+      *ngFor="let todo of store.todos()"
+      [todo]="todo"
+      cdkDrag
+      class="block cursor-move active:z-50 active:scale-[1.02] transition-transform duration-200"
+      (toggle)="store.toggleTodo($event)"
+      (delete)="store.deleteTodo($event)"
+    ></app-todo-item>
+
+    <div
+      *ngIf="store.todos().length === 0"
+      class="text-center py-12 text-slate-400 italic bg-white/5 rounded-2xl border border-dashed border-white/10"
+    >
+      <p>No tasks yet. Add one above!</p>
+    </div>
+  </div>
+</div>

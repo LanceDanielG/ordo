@@ -1,0 +1,67 @@
+
+> ordo@0.0.0 start
+> ng serve --port 4201
+
+❯ Building...
+✔ Building...
+Initial chunk files | Names         | Raw size
+main.js             | main          | 50.28 kB | 
+styles.css          | styles        | 18.64 kB | 
+
+                    | Initial total | 68.93 kB
+
+Application bundle generation complete. [2.374 seconds] - 2026-01-01T03:08:53.449Z
+
+Watch mode enabled. Watching for file changes...
+NOTE: Raw file sizes do not reflect development server per-request transformations.
+11:08:53 AM [vite] (client) Re-optimizing dependencies because lockfile has changed
+  ➜  Local:   http://localhost:4201/
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Initial chunk files | Names | Raw size
+main.js             | main  | 50.20 kB | 
+
+Application bundle generation complete. [0.874 seconds] - 2026-01-01T03:10:37.509Z
+
+Component update sent to client(s).
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Initial chunk files | Names         | Raw size
+main.js             | main          | 54.92 kB | 
+styles.css          | styles        | 18.73 kB | 
+
+                    | Initial total | 73.65 kB
+
+Application bundle generation complete. [0.433 seconds] - 2026-01-01T03:11:05.186Z
+
+Page reload sent to client(s).
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Initial chunk files | Names         | Raw size
+main.js             | main          | 54.92 kB | 
+styles.css          | styles        | 18.73 kB | 
+
+                    | Initial total | 73.65 kB
+
+Application bundle generation complete. [0.121 seconds] - 2026-01-01T03:12:30.366Z
+
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Initial chunk files | Names         | Raw size
+main.js             | main          | 54.92 kB | 
+styles.css          | styles        | 18.73 kB | 
+
+                    | Initial total | 73.65 kB
+
+Application bundle generation complete. [0.066 seconds] - 2026-01-01T03:12:42.224Z
+
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Initial chunk files | Names         | Raw size
+main.js             | main          | 54.92 kB | 
+styles.css          | styles        | 18.73 kB | 
+
+                    | Initial total | 73.65 kB
+
+Application bundle generation complete. [0.038 seconds] - 2026-01-01T03:12:44.282Z
+
