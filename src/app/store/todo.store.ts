@@ -70,10 +70,14 @@ export class TodoStore {
     }
 
     async updateTodo(id: string, updates: Partial<Todo>) {
+        const user = this.auth.user();
+        if (!user) return;
+
         const { error } = await this.supabase
             .from('todos')
             .update(updates)
-            .eq('id', id);
+            .eq('id', id)
+            .eq('user_id', user.id);
 
         if (!error) {
             this.todosSignal.update(todos =>
@@ -109,10 +113,14 @@ export class TodoStore {
     }
 
     async deleteTodo(id: string) {
+        const user = this.auth.user();
+        if (!user) return;
+
         const { error } = await this.supabase
             .from('todos')
             .delete()
-            .eq('id', id);
+            .eq('id', id)
+            .eq('user_id', user.id);
 
         if (!error) {
             this.todosSignal.update(todos => todos.filter(t => t.id !== id));
