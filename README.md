@@ -1,59 +1,48 @@
-# Ordo
+# Ordo - Premium Kanban Task Manager
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.4.
+Ordo is an **elite productivity application** designed to elevate your task management experience. Built with a modern, glassmorphic aesthetic and powered by Angular and Supabase, it offers seamless task organization through an intuitive Kanban-style workflow.
 
-## Development server
+## ✨ Key Features
 
-To start a local development server, run:
+- **Dynamic Kanban Board**: Organize your work across three smart categories: **To Do**, **In Progress**, and **Done**.
+- **Intuitive Drag-and-Drop**: Effortlessly move tasks between categories and reorder them within lists to prioritize your day.
+- **Smart Prioritization**: Assign **High**, **Medium**, or **Low** priority levels to tasks with color-coded visual indicators.
+- **Real-Time Synchronization**: Changes are instantly synced to the cloud via Supabase, ensuring your data is always up-to-date across all devices.
+- **Secure Authentication**: Supports both **Google Sign-In** and **Email/Password** authentication, with robust Row Level Security (RLS) to keep your data private.
+- **Premium Glassmorphic UI**: A stunning, semi-transparent interface with vibrant gradients and subtle micro-animations for a high-end feel.
+- **Dark Mode Optimized**: Designed primarily for modern dark themes to reduce eye strain and look professional.
 
-```bash
-ng serve
-```
+## 🛠️ Technology Stack
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- **Frontend**: Angular v21, TypeScript
+- **Styling**: Tailwind CSS + Custom CSS (Glassmorphism)
+- **State Management**: Angular Signals (Fine-grained reactivity)
+- **Backend/Database**: Supabase (PostgreSQL, Real-time)
+- **Auth**: Supabase Auth (OAuth & JWT)
+- **Deployment**: Vercel
 
-## Code scaffolding
+## 🚀 Deployment
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### Vercel Deployment
 
-```bash
-ng generate component component-name
-```
+This project is optimized for secure deployment on Vercel using a build-time environment injection strategy.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+1.  **Environment Variables**: Add the following secrets to your Vercel project settings:
+    - `ORD_SUPABASE_URL`
+    - `ORD_SUPABASE_KEY`
+2.  **Build Process**: The project uses a custom `prebuild` script to generate environment files dynamically, ensuring your secrets are never committed to version control.
+3.  **Command**: The build command is `npm run build` and the output directory is `dist/ordo`.
 
-```bash
-ng generate --help
-```
+### Local Development
 
-## Building
+1.  Create a `.env` file in the root with your Supabase credentials:
+    ```bash
+    SUPABASE_URL=your_url
+    SUPABASE_KEY=your_key
+    ```
+2.  Run `npm run start` to launch the development server on `http://localhost:4201`.
 
-To build the project run:
+## 🔒 Security
 
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- **Environment Protection**: Secrets are managed via `.env` locally and environment variables in production, strictly ignored by Git.
+- **Data Isolation**: Row Level Security (RLS) policies are active on the database to ensure users can only ever access their own data.
