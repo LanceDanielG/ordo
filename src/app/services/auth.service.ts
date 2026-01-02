@@ -1,4 +1,4 @@
-import { Injectable, signal, inject } from '@angular/core';
+import { Injectable, signal, inject, NgZone } from '@angular/core';
 import { SupabaseService } from './supabase.service';
 import { User, AuthChangeEvent, Session } from '@supabase/supabase-js';
 import { Router } from '@angular/router';
@@ -9,29 +9,42 @@ import { Router } from '@angular/router';
 export class AuthService {
     private supabase = inject(SupabaseService).client;
     private router = inject(Router);
+    private zone = inject(NgZone);
 
     user = signal<User | null>(null);
     loading = signal(true);
 
     constructor() {
-        this.checkSession();
-
         this.supabase.auth.onAuthStateChange((event: AuthChangeEvent, session: Session | null) => {
-            this.user.set(session?.user ?? null);
-            this.loading.set(false);
+            console.log('Auth event:', event, session?.user?.email);
 
-            if (event === 'SIGNED_IN') {
-                this.router.navigate(['/dashboard']);
-            } else if (event === 'SIGNED_OUT') {
-                this.router.navigate(['/login']);
-            }
+            this.zone.run(() => {
+                this.user.set(session?.user ?? null);
+                this.loading.set(false);
+
+                if (event === 'SIGNED_IN') {
+                    this.router.navigate(['/dashboard']);
+                } else if (event === 'SIGNED_OUT') {
+                    this.router.navigate(['/login']);
+                }
+            });
         });
+
+        this.checkSession();
     }
 
     async checkSession() {
-        const { data: { session } } = await this.supabase.auth.getSession();
-        this.user.set(session?.user ?? null);
-        this.loading.set(false);
+        try {
+            const { data: { session } } = await this.supabase.auth.getSession();
+            this.zone.run(() => {
+                this.user.set(session?.user ?? null);
+                this.loading.set(false);
+            });
+        } catch (error) {
+            this.zone.run(() => {
+                this.loading.set(false);
+            });
+        }
     }
 
     async signInWithGoogle() {
@@ -44,10 +57,18 @@ export class AuthService {
         if (error) throw error;
     }
 
-    async signInWithEmail(email: string) {
-        // Supabase magic link or password-less login
-        const { error } = await this.supabase.auth.signInWithOtp({
+    async signInWithPassword(email: string, password: string) {
+        const { error } = await this.supabase.auth.signInWithPassword({
             email,
+            password
+        });
+        if (error) throw error;
+    }
+
+    async signUpWithPassword(email: string, password: string) {
+        const { error } = await this.supabase.auth.signUp({
+            email,
+            password,
             options: {
                 emailRedirectTo: window.location.origin
             }

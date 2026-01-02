@@ -11,7 +11,8 @@ describe('LoginComponent', () => {
     beforeEach(async () => {
         authServiceMock = {
             signInWithGoogle: vi.fn(),
-            signInWithEmail: vi.fn(),
+            signInWithPassword: vi.fn(),
+            signUpWithPassword: vi.fn(),
             user: signal(null),
             loading: signal(false)
         };
@@ -37,15 +38,27 @@ describe('LoginComponent', () => {
         expect(authServiceMock.signInWithGoogle).toHaveBeenCalled();
     });
 
-    it('should call signInWithEmail if email is provided', async () => {
+    it('should call signInWithPassword on submit in login mode', async () => {
         component.email = 'test@example.com';
-        await component.loginWithEmail();
-        expect(authServiceMock.signInWithEmail).toHaveBeenCalledWith('test@example.com');
+        component.password = 'password123';
+        component.isRegisterMode.set(false);
+        await component.onSubmit();
+        expect(authServiceMock.signInWithPassword).toHaveBeenCalledWith('test@example.com', 'password123');
     });
 
-    it('should not call signInWithEmail if email is empty', async () => {
-        component.email = '';
-        await component.loginWithEmail();
-        expect(authServiceMock.signInWithEmail).not.toHaveBeenCalled();
+    it('should call signUpWithPassword on submit in register mode', async () => {
+        component.email = 'test@example.com';
+        component.password = 'password123';
+        component.isRegisterMode.set(true);
+        await component.onSubmit();
+        expect(authServiceMock.signUpWithPassword).toHaveBeenCalledWith('test@example.com', 'password123');
+    });
+
+    it('should toggle register mode', () => {
+        expect(component.isRegisterMode()).toBe(false);
+        component.toggleMode();
+        expect(component.isRegisterMode()).toBe(true);
+        component.toggleMode();
+        expect(component.isRegisterMode()).toBe(false);
     });
 });

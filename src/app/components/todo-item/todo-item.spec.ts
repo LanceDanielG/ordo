@@ -1,10 +1,12 @@
 import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { TodoItemComponent } from './todo-item';
 import { Todo } from '../../models/todo.model';
+import { TodoStore } from '../../store/todo.store';
 
 describe('TodoItemComponent', () => {
     let component: TodoItemComponent;
     let fixture: ComponentFixture<TodoItemComponent>;
+    let mockStore: any;
 
     const mockTodo: Todo = {
         id: '1',
@@ -12,13 +14,20 @@ describe('TodoItemComponent', () => {
         text: 'Test Todo',
         completed: false,
         priority: 'medium',
+        category: 'todo',
         position: 0,
-        createdAt: Date.now()
+        created_at: Date.now()
     };
 
     beforeEach(async () => {
+        mockStore = {
+            updateTodo: vi.fn(),
+            deleteTodo: vi.fn()
+        };
+
         await TestBed.configureTestingModule({
-            imports: [TodoItemComponent]
+            imports: [TodoItemComponent],
+            providers: [{ provide: TodoStore, useValue: mockStore }]
         }).compileComponents();
 
         fixture = TestBed.createComponent(TodoItemComponent);
@@ -31,18 +40,16 @@ describe('TodoItemComponent', () => {
         expect(component).toBeTruthy();
     });
 
-    it('should emit toggle event when onToggle is called', () => {
-        vi.spyOn(component.toggle, 'emit');
+    it('should call store.updateTodo when onToggle is called', () => {
         component.onToggle();
-        expect(component.toggle.emit).toHaveBeenCalledWith('1');
+        expect(mockStore.updateTodo).toHaveBeenCalledWith('1', { completed: true });
     });
 
-    it('should emit delete event when onDelete is called', () => {
-        vi.spyOn(component.delete, 'emit');
+    it('should call store.deleteTodo when onDelete is called', () => {
         const stopPropagationSpy = vi.fn();
         component.onDelete({ stopPropagation: stopPropagationSpy } as any);
 
         expect(stopPropagationSpy).toHaveBeenCalled();
-        expect(component.delete.emit).toHaveBeenCalledWith('1');
+        expect(mockStore.deleteTodo).toHaveBeenCalledWith('1');
     });
 });

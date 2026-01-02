@@ -1,1 +1,50 @@
-/* Dashboard specific styles */
+@use "sass:map";
+
+.kanban-board {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.kanban-column {
+  @apply glass-panel flex flex-col min-h-[500px] p-4 transition-all duration-300;
+  background: rgba(var(--column-bg, 30, 41, 59), 0.3);
+  
+  &.cdk-drop-list-dragging .todo-item {
+    transition: none;
+  }
+}
+
+.column-header {
+  @apply flex items-center justify-between mb-4 px-2;
+}
+
+.column-title {
+  @apply text-sm font-bold uppercase tracking-widest flex items-center gap-2;
+  color: var(--text-primary);
+}
+
+.task-count {
+  @apply text-[10px] bg-white/10 px-2 py-0.5 rounded-full font-mono;
+}
+
+.cdk-drag-preview {
+  @apply shadow-2xl scale-105;
+  box-sizing: border-box;
+  border-radius: 1rem;
+  z-index: 1000 !important;
+}
+
+.cdk-drag-placeholder {
+  @apply opacity-20 border-2 border-dashed border-blue-500 rounded-2xl mb-3;
+  min-height: 80px;
+}
+
+.cdk-drag-animating {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.todo-list.cdk-drop-list-dragging .todo-item:not(.cdk-drag-placeholder) {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}

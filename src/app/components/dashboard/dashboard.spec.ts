@@ -38,9 +38,9 @@ describe('DashboardComponent', () => {
         expect(component).toBeTruthy();
     });
 
-    it('should display the user email', () => {
+    it('should display the username part of the email', () => {
         const compiled = fixture.nativeElement as HTMLElement;
-        expect(compiled.textContent).toContain('test@example.com');
+        expect(compiled.textContent).toContain('test');
     });
 
     it('should call signOut when logout button is clicked', () => {

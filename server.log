@@ -65,3 +65,804 @@ styles.css          | styles        | 18.73 kB |
 
 Application bundle generation complete. [0.038 seconds] - 2026-01-01T03:12:44.282Z
 
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Application bundle generation failed. [0.318 seconds] - 2026-01-01T04:06:53.435Z
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'signInWithEmail' does not exist on type 'AuthService'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/login/login.ts:33:28:
+[37m      33 │             await this.auth.[32msignInWithEmail[37m(this.email);
+         ╵                             [32m~~~~~~~~~~~~~~~[0m
+
+
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Application bundle generation failed. [0.295 seconds] - 2026-01-01T04:07:03.442Z
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'loginWithEmail' does not exist on type 'LoginComponent'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/login/login.html:35:19:
+[37m      35 │           (click)="[32mloginWithEmail[37m()"
+         ╵                    [32m~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component LoginComponent.
+
+    src/app/components/login/login.ts:10:17:
+[37m      10 │     templateUrl: [32m'./login.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~[0m
+
+
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Initial chunk files | Names         | Raw size
+main.js             | main          | 57.80 kB | 
+styles.css          | styles        | 18.87 kB | 
+
+                    | Initial total | 76.67 kB
+
+Application bundle generation complete. [0.273 seconds] - 2026-01-01T04:07:14.158Z
+
+Page reload sent to client(s).
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Initial chunk files | Names         | Raw size
+main.js             | main          | 57.80 kB | 
+styles.css          | styles        | 18.87 kB | 
+
+                    | Initial total | 76.67 kB
+
+Application bundle generation complete. [0.056 seconds] - 2026-01-01T04:07:22.743Z
+
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Initial chunk files | Names | Raw size
+main.js             | main  | 58.11 kB | 
+
+Application bundle generation complete. [0.546 seconds] - 2026-01-01T04:34:09.949Z
+
+Page reload sent to client(s).
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Initial chunk files | Names | Raw size
+main.js             | main  | 58.48 kB | 
+
+Application bundle generation complete. [0.858 seconds] - 2026-01-01T04:34:19.273Z
+
+Page reload sent to client(s).
+12:34:21 PM [vite] (client) ✨ new dependencies optimized: @angular/core/rxjs-interop, rxjs
+12:34:21 PM [vite] (client) ✨ optimized dependencies changed. reloading
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Initial chunk files | Names  | Raw size
+styles.css          | styles | 18.87 kB | 
+
+Application bundle generation complete. [0.549 seconds] - 2026-01-01T04:42:00.229Z
+
+Stylesheet update sent to client(s).
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Initial chunk files | Names  | Raw size
+styles.css          | styles | 19.25 kB | 
+
+Application bundle generation complete. [0.255 seconds] - 2026-01-01T04:42:02.130Z
+
+Stylesheet update sent to client(s).
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Initial chunk files | Names         | Raw size
+main.js             | main          | 58.72 kB | 
+styles.css          | styles        | 19.81 kB | 
+
+                    | Initial total | 78.53 kB
+
+Application bundle generation complete. [0.218 seconds] - 2026-01-01T04:42:18.786Z
+
+Stylesheet update sent to client(s).
+Component update sent to client(s).
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Initial chunk files | Names         | Raw size
+main.js             | main          | 59.23 kB | 
+styles.css          | styles        | 20.10 kB | 
+
+                    | Initial total | 79.33 kB
+
+Application bundle generation complete. [0.280 seconds] - 2026-01-01T04:42:20.954Z
+
+Stylesheet update sent to client(s).
+Component update sent to client(s).
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Initial chunk files | Names         | Raw size
+main.js             | main          | 59.39 kB | 
+styles.css          | styles        | 20.22 kB | 
+
+                    | Initial total | 79.61 kB
+
+Application bundle generation complete. [0.215 seconds] - 2026-01-01T04:42:22.874Z
+
+Stylesheet update sent to client(s).
+Component update sent to client(s).
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Initial chunk files | Names         | Raw size
+main.js             | main          | 59.39 kB | 
+styles.css          | styles        | 20.22 kB | 
+
+                    | Initial total | 79.61 kB
+
+Application bundle generation complete. [0.353 seconds] - 2026-01-01T05:00:21.242Z
+
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Application bundle generation failed. [0.236 seconds] - 2026-01-01T05:00:31.646Z
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'reorderTodos' does not exist on type 'TodoStore'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/todo-list/todo-list.ts:20:19:
+[37m      20 │         this.store.[32mreorderTodos[37m(todos);
+         ╵                    [32m~~~~~~~~~~~~[0m
+
+
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Application bundle generation failed. [0.285 seconds] - 2026-01-01T05:00:48.447Z
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'reorderTodos' does not exist on type 'TodoStore'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/todo-list/todo-list.ts:20:19:
+[37m      20 │         this.store.[32mreorderTodos[37m(todos);
+         ╵                    [32m~~~~~~~~~~~~[0m
+
+
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Application bundle generation failed. [0.330 seconds] - 2026-01-01T05:00:50.972Z
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8113: TodoListComponent is not used within the template of DashboardComponent[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/dashboard/dashboard.ts:11:48:
+[37m      11 │     imports: [CommonModule, TodoInputComponent, [32mTodoListComponent[37m],
+         ╵                                                 [32m~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2532: Object is possibly 'undefined'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/dashboard/dashboard.html:61:14:
+[37m      61 │               [32mauth.user()?.email?.split('@')[0][37m
+         ╵               [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component DashboardComponent.
+
+    src/app/components/dashboard/dashboard.ts:12:17:
+[37m      12 │     templateUrl: [32m'./dashboard.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'store' does not exist on type 'DashboardComponent'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/dashboard/dashboard.html:102:33:
+[37m      102 │ ...      {{ currentDate }} • {[32m{ sto[37mre.todos().length }} tasks t...
+          ╵                               [32m~~~~~[0m
+
+  Error occurs in the template of component DashboardComponent.
+
+    src/app/components/dashboard/dashboard.ts:12:17:
+[37m      12 │     templateUrl: [32m'./dashboard.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'store' does not exist on type 'DashboardComponent'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/dashboard/dashboard.html:116:38:
+[37m      116 │ ...    <span class="task-count">{{ [32mstore[37m.todoList().length }}</span>
+          ╵                                    [32m~~~~~[0m
+
+  Error occurs in the template of component DashboardComponent.
+
+    src/app/components/dashboard/dashboard.ts:12:17:
+[37m      12 │     templateUrl: [32m'./dashboard.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG8002: Can't bind to 'cdkDropListData' since it isn't a known property of 'div'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/dashboard/dashboard.html:120:10:
+[37m      120 │           [32m[cdkDropListData]="store.todoList()"[37m
+          ╵           [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component DashboardComponent.
+
+    src/app/components/dashboard/dashboard.ts:12:17:
+[37m      12 │     templateUrl: [32m'./dashboard.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'store' does not exist on type 'DashboardComponent'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/dashboard/dashboard.html:120:29:
+[37m      120 │           [cdkDropListData]="[32mstore[37m.todoList()"
+          ╵                              [32m~~~~~[0m
+
+  Error occurs in the template of component DashboardComponent.
+
+    src/app/components/dashboard/dashboard.ts:12:17:
+[37m      12 │     templateUrl: [32m'./dashboard.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'onDrop' does not exist on type 'DashboardComponent'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/dashboard/dashboard.html:121:32:
+[37m      121 │           (cdkDropListDropped)="[32monDrop[37m($event, 'todo')"
+          ╵                                 [32m~~~~~~[0m
+
+  Error occurs in the template of component DashboardComponent.
+
+    src/app/components/dashboard/dashboard.ts:12:17:
+[37m      12 │     templateUrl: [32m'./dashboard.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG8001: 'app-todo-item' is not a known element:
+1. If 'app-todo-item' is an Angular component, then verify that it is included in the '@Component.imports' of this component.
+2. If 'app-todo-item' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@Component.schemas' of this component to suppress this message.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/dashboard/dashboard.html:124:10:
+[37m      124 │           [32m<app-todo-item[37m
+          ╵           [32m~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component DashboardComponent.
+
+    src/app/components/dashboard/dashboard.ts:12:17:
+[37m      12 │     templateUrl: [32m'./dashboard.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'store' does not exist on type 'DashboardComponent'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/dashboard/dashboard.html:125:32:
+[37m      125 │             *ngFor="let todo of [32mstore[37m.todoList()"
+          ╵                                 [32m~~~~~[0m
+
+  Error occurs in the template of component DashboardComponent.
+
+    src/app/components/dashboard/dashboard.ts:12:17:
+[37m      12 │     templateUrl: [32m'./dashboard.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG8002: Can't bind to 'todo' since it isn't a known property of 'app-todo-item'.
+1. If 'app-todo-item' is an Angular component and it has 'todo' input, then verify that it is included in the '@Component.imports' of this component.
+2. If 'app-todo-item' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@Component.schemas' of this component to suppress this message.
+3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@Component.schemas' of this component.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/dashboard/dashboard.html:126:12:
+[37m      126 │             [32m[todo]="todo"[37m
+          ╵             [32m~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component DashboardComponent.
+
+    src/app/components/dashboard/dashboard.ts:12:17:
+[37m      12 │     templateUrl: [32m'./dashboard.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG8002: Can't bind to 'cdkDragData' since it isn't a known property of 'app-todo-item'.
+1. If 'app-todo-item' is an Angular component and it has 'cdkDragData' input, then verify that it is included in the '@Component.imports' of this component.
+2. If 'app-todo-item' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@Component.schemas' of this component to suppress this message.
+3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@Component.schemas' of this component.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/dashboard/dashboard.html:128:12:
+[37m      128 │             [32m[cdkDragData]="todo"[37m
+          ╵             [32m~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component DashboardComponent.
+
+    src/app/components/dashboard/dashboard.ts:12:17:
+[37m      12 │     templateUrl: [32m'./dashboard.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'store' does not exist on type 'DashboardComponent'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/dashboard/dashboard.html:139:38:
+[37m      139 │ ... <span class="task-count">{{ [32mstore[37m.inProgressList().length }}<...
+          ╵                                 [32m~~~~~[0m
+
+  Error occurs in the template of component DashboardComponent.
+
+    src/app/components/dashboard/dashboard.ts:12:17:
+[37m      12 │     templateUrl: [32m'./dashboard.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG8002: Can't bind to 'cdkDropListData' since it isn't a known property of 'div'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/dashboard/dashboard.html:143:10:
+[37m      143 │           [32m[cdkDropListData]="store.inProgressList()"[37m
+          ╵           [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component DashboardComponent.
+
+    src/app/components/dashboard/dashboard.ts:12:17:
+[37m      12 │     templateUrl: [32m'./dashboard.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'store' does not exist on type 'DashboardComponent'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/dashboard/dashboard.html:143:29:
+[37m      143 │           [cdkDropListData]="[32mstore[37m.inProgressList()"
+          ╵                              [32m~~~~~[0m
+
+  Error occurs in the template of component DashboardComponent.
+
+    src/app/components/dashboard/dashboard.ts:12:17:
+[37m      12 │     templateUrl: [32m'./dashboard.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'onDrop' does not exist on type 'DashboardComponent'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/dashboard/dashboard.html:144:32:
+[37m      144 │           (cdkDropListDropped)="[32monDrop[37m($event, 'in-progress')"
+          ╵                                 [32m~~~~~~[0m
+
+  Error occurs in the template of component DashboardComponent.
+
+    src/app/components/dashboard/dashboard.ts:12:17:
+[37m      12 │     templateUrl: [32m'./dashboard.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG8001: 'app-todo-item' is not a known element:
+1. If 'app-todo-item' is an Angular component, then verify that it is included in the '@Component.imports' of this component.
+2. If 'app-todo-item' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@Component.schemas' of this component to suppress this message.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/dashboard/dashboard.html:147:10:
+[37m      147 │           [32m<app-todo-item[37m
+          ╵           [32m~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component DashboardComponent.
+
+    src/app/components/dashboard/dashboard.ts:12:17:
+[37m      12 │     templateUrl: [32m'./dashboard.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'store' does not exist on type 'DashboardComponent'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/dashboard/dashboard.html:148:32:
+[37m      148 │             *ngFor="let todo of [32mstore[37m.inProgressList()"
+          ╵                                 [32m~~~~~[0m
+
+  Error occurs in the template of component DashboardComponent.
+
+    src/app/components/dashboard/dashboard.ts:12:17:
+[37m      12 │     templateUrl: [32m'./dashboard.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG8002: Can't bind to 'todo' since it isn't a known property of 'app-todo-item'.
+1. If 'app-todo-item' is an Angular component and it has 'todo' input, then verify that it is included in the '@Component.imports' of this component.
+2. If 'app-todo-item' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@Component.schemas' of this component to suppress this message.
+3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@Component.schemas' of this component.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/dashboard/dashboard.html:149:12:
+[37m      149 │             [32m[todo]="todo"[37m
+          ╵             [32m~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component DashboardComponent.
+
+    src/app/components/dashboard/dashboard.ts:12:17:
+[37m      12 │     templateUrl: [32m'./dashboard.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG8002: Can't bind to 'cdkDragData' since it isn't a known property of 'app-todo-item'.
+1. If 'app-todo-item' is an Angular component and it has 'cdkDragData' input, then verify that it is included in the '@Component.imports' of this component.
+2. If 'app-todo-item' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@Component.schemas' of this component to suppress this message.
+3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@Component.schemas' of this component.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/dashboard/dashboard.html:151:12:
+[37m      151 │             [32m[cdkDragData]="todo"[37m
+          ╵             [32m~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component DashboardComponent.
+
+    src/app/components/dashboard/dashboard.ts:12:17:
+[37m      12 │     templateUrl: [32m'./dashboard.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'store' does not exist on type 'DashboardComponent'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/dashboard/dashboard.html:162:38:
+[37m      162 │ ...    <span class="task-count">{{ [32mstore[37m.doneList().length }}</span>
+          ╵                                    [32m~~~~~[0m
+
+  Error occurs in the template of component DashboardComponent.
+
+    src/app/components/dashboard/dashboard.ts:12:17:
+[37m      12 │     templateUrl: [32m'./dashboard.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG8002: Can't bind to 'cdkDropListData' since it isn't a known property of 'div'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/dashboard/dashboard.html:166:10:
+[37m      166 │           [32m[cdkDropListData]="store.doneList()"[37m
+          ╵           [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component DashboardComponent.
+
+    src/app/components/dashboard/dashboard.ts:12:17:
+[37m      12 │     templateUrl: [32m'./dashboard.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'store' does not exist on type 'DashboardComponent'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/dashboard/dashboard.html:166:29:
+[37m      166 │           [cdkDropListData]="[32mstore[37m.doneList()"
+          ╵                              [32m~~~~~[0m
+
+  Error occurs in the template of component DashboardComponent.
+
+    src/app/components/dashboard/dashboard.ts:12:17:
+[37m      12 │     templateUrl: [32m'./dashboard.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'onDrop' does not exist on type 'DashboardComponent'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/dashboard/dashboard.html:167:32:
+[37m      167 │           (cdkDropListDropped)="[32monDrop[37m($event, 'done')"
+          ╵                                 [32m~~~~~~[0m
+
+  Error occurs in the template of component DashboardComponent.
+
+    src/app/components/dashboard/dashboard.ts:12:17:
+[37m      12 │     templateUrl: [32m'./dashboard.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG8001: 'app-todo-item' is not a known element:
+1. If 'app-todo-item' is an Angular component, then verify that it is included in the '@Component.imports' of this component.
+2. If 'app-todo-item' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@Component.schemas' of this component to suppress this message.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/dashboard/dashboard.html:170:10:
+[37m      170 │           [32m<app-todo-item[37m
+          ╵           [32m~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component DashboardComponent.
+
+    src/app/components/dashboard/dashboard.ts:12:17:
+[37m      12 │     templateUrl: [32m'./dashboard.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'store' does not exist on type 'DashboardComponent'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/dashboard/dashboard.html:171:32:
+[37m      171 │             *ngFor="let todo of [32mstore[37m.doneList()"
+          ╵                                 [32m~~~~~[0m
+
+  Error occurs in the template of component DashboardComponent.
+
+    src/app/components/dashboard/dashboard.ts:12:17:
+[37m      12 │     templateUrl: [32m'./dashboard.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG8002: Can't bind to 'todo' since it isn't a known property of 'app-todo-item'.
+1. If 'app-todo-item' is an Angular component and it has 'todo' input, then verify that it is included in the '@Component.imports' of this component.
+2. If 'app-todo-item' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@Component.schemas' of this component to suppress this message.
+3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@Component.schemas' of this component.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/dashboard/dashboard.html:172:12:
+[37m      172 │             [32m[todo]="todo"[37m
+          ╵             [32m~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component DashboardComponent.
+
+    src/app/components/dashboard/dashboard.ts:12:17:
+[37m      12 │     templateUrl: [32m'./dashboard.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG8002: Can't bind to 'cdkDragData' since it isn't a known property of 'app-todo-item'.
+1. If 'app-todo-item' is an Angular component and it has 'cdkDragData' input, then verify that it is included in the '@Component.imports' of this component.
+2. If 'app-todo-item' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@Component.schemas' of this component to suppress this message.
+3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@Component.schemas' of this component.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/dashboard/dashboard.html:174:12:
+[37m      174 │             [32m[cdkDragData]="todo"[37m
+          ╵             [32m~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component DashboardComponent.
+
+    src/app/components/dashboard/dashboard.ts:12:17:
+[37m      12 │     templateUrl: [32m'./dashboard.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'reorderTodos' does not exist on type 'TodoStore'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/todo-list/todo-list.ts:20:19:
+[37m      20 │         this.store.[32mreorderTodos[37m(todos);
+         ╵                    [32m~~~~~~~~~~~~[0m
+
+
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Application bundle generation failed. [0.403 seconds] - 2026-01-01T05:00:53.034Z
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2532: Object is possibly 'undefined'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/dashboard/dashboard.html:61:14:
+[37m      61 │               [32mauth.user()?.email?.split('@')[0][37m
+         ╵               [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component DashboardComponent.
+
+    src/app/components/dashboard/dashboard.ts:15:17:
+[37m      15 │     templateUrl: [32m'./dashboard.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'reorderTodos' does not exist on type 'TodoStore'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/todo-list/todo-list.ts:20:19:
+[37m      20 │         this.store.[32mreorderTodos[37m(todos);
+         ╵                    [32m~~~~~~~~~~~~[0m
+
+
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Application bundle generation failed. [0.292 seconds] - 2026-01-01T05:01:05.732Z
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2532: Object is possibly 'undefined'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/dashboard/dashboard.html:61:14:
+[37m      61 │               [32mauth.user()?.email?.split('@')[0][37m
+         ╵               [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component DashboardComponent.
+
+    src/app/components/dashboard/dashboard.ts:15:17:
+[37m      15 │     templateUrl: [32m'./dashboard.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'reorderTodos' does not exist on type 'TodoStore'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/todo-list/todo-list.ts:20:19:
+[37m      20 │         this.store.[32mreorderTodos[37m(todos);
+         ╵                    [32m~~~~~~~~~~~~[0m
+
+
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Application bundle generation failed. [0.226 seconds] - 2026-01-01T05:01:07.728Z
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2532: Object is possibly 'undefined'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/dashboard/dashboard.html:61:14:
+[37m      61 │               [32mauth.user()?.email?.split('@')[0][37m
+         ╵               [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component DashboardComponent.
+
+    src/app/components/dashboard/dashboard.ts:15:17:
+[37m      15 │     templateUrl: [32m'./dashboard.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'reorderTodos' does not exist on type 'TodoStore'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/todo-list/todo-list.ts:20:19:
+[37m      20 │         this.store.[32mreorderTodos[37m(todos);
+         ╵                    [32m~~~~~~~~~~~~[0m
+
+
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Application bundle generation failed. [0.211 seconds] - 2026-01-01T05:01:09.726Z
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2532: Object is possibly 'undefined'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/dashboard/dashboard.html:61:14:
+[37m      61 │               [32mauth.user()?.email?.split('@')[0][37m
+         ╵               [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component DashboardComponent.
+
+    src/app/components/dashboard/dashboard.ts:15:17:
+[37m      15 │     templateUrl: [32m'./dashboard.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'reorderTodos' does not exist on type 'TodoStore'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/todo-list/todo-list.ts:20:19:
+[37m      20 │         this.store.[32mreorderTodos[37m(todos);
+         ╵                    [32m~~~~~~~~~~~~[0m
+
+
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Application bundle generation failed. [0.335 seconds] - 2026-01-01T05:08:09.227Z
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2532: Object is possibly 'undefined'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/dashboard/dashboard.html:61:14:
+[37m      61 │               [32mauth.user()?.email?.split('@')[0][37m
+         ╵               [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component DashboardComponent.
+
+    src/app/components/dashboard/dashboard.ts:15:17:
+[37m      15 │     templateUrl: [32m'./dashboard.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'reorderTodos' does not exist on type 'TodoStore'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/todo-list/todo-list.ts:20:19:
+[37m      20 │         this.store.[32mreorderTodos[37m(todos);
+         ╵                    [32m~~~~~~~~~~~~[0m
+
+
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Application bundle generation failed. [0.185 seconds] - 2026-01-01T05:08:11.176Z
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8113: TodoItemComponent is not used within the template of TodoListComponent[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/todo-list/todo-list.ts:10:28:
+[37m      10 │     imports: [CommonModule, [32mTodoItemComponent[37m, DragDropModule],
+         ╵                             [32m~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2532: Object is possibly 'undefined'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/dashboard/dashboard.html:61:14:
+[37m      61 │               [32mauth.user()?.email?.split('@')[0][37m
+         ╵               [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component DashboardComponent.
+
+    src/app/components/dashboard/dashboard.ts:15:17:
+[37m      15 │     templateUrl: [32m'./dashboard.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~[0m
+
+
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Application bundle generation failed. [0.095 seconds] - 2026-01-01T05:58:39.010Z
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8113: TodoItemComponent is not used within the template of TodoListComponent[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/todo-list/todo-list.ts:10:28:
+[37m      10 │     imports: [CommonModule, [32mTodoItemComponent[37m, DragDropModule],
+         ╵                             [32m~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2532: Object is possibly 'undefined'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/dashboard/dashboard.html:61:14:
+[37m      61 │               [32mauth.user()?.email?.split('@')[0][37m
+         ╵               [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component DashboardComponent.
+
+    src/app/components/dashboard/dashboard.ts:15:17:
+[37m      15 │     templateUrl: [32m'./dashboard.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~[0m
+
+
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Application bundle generation failed. [0.058 seconds] - 2026-01-01T05:58:41.172Z
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8113: TodoItemComponent is not used within the template of TodoListComponent[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/todo-list/todo-list.ts:10:28:
+[37m      10 │     imports: [CommonModule, [32mTodoItemComponent[37m, DragDropModule],
+         ╵                             [32m~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2532: Object is possibly 'undefined'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/dashboard/dashboard.html:61:14:
+[37m      61 │               [32mauth.user()?.email?.split('@')[0][37m
+         ╵               [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component DashboardComponent.
+
+    src/app/components/dashboard/dashboard.ts:15:17:
+[37m      15 │     templateUrl: [32m'./dashboard.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~[0m
+
+
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Initial chunk files | Names         | Raw size
+main.js             | main          | 69.96 kB | 
+styles.css          | styles        | 24.73 kB | 
+
+                    | Initial total | 94.69 kB
+
+Application bundle generation complete. [0.385 seconds] - 2026-01-01T05:59:33.253Z
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8113: TodoItemComponent is not used within the template of TodoListComponent[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/todo-list/todo-list.ts:10:28:
+[37m      10 │     imports: [CommonModule, [32mTodoItemComponent[37m, DragDropModule],
+         ╵                             [32m~~~~~~~~~~~~~~~~~[0m
+
+
+Page reload sent to client(s).
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Initial chunk files | Names         | Raw size
+main.js             | main          | 69.96 kB | 
+styles.css          | styles        | 24.73 kB | 
+
+                    | Initial total | 94.69 kB
+
+Application bundle generation complete. [0.386 seconds] - 2026-01-01T05:59:35.302Z
+
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Initial chunk files | Names         | Raw size
+main.js             | main          | 69.96 kB | 
+styles.css          | styles        | 24.73 kB | 
+
+                    | Initial total | 94.69 kB
+
+Application bundle generation complete. [0.067 seconds] - 2026-01-01T06:00:58.348Z
+
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Application bundle generation failed. [0.601 seconds] - 2026-01-01T06:31:10.232Z
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2561: Object literal may only specify known properties, but 'createdAt' does not exist in type 'Todo'. Did you mean to write 'created_at'?[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/store/todo.store.ts:58:12:
+[37m      58 │             [32mcreatedAt[37m: new Date().toISOString()
+         ╵             [32m~~~~~~~~~[0m
+
+
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Initial chunk files | Names         | Raw size
+main.js             | main          | 69.96 kB | 
+styles.css          | styles        | 24.73 kB | 
+
+                    | Initial total | 94.69 kB
+
+Application bundle generation complete. [0.578 seconds] - 2026-01-01T06:31:12.477Z
+
+Page reload sent to client(s).
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Initial chunk files | Names         | Raw size
+main.js             | main          | 69.96 kB | 
+styles.css          | styles        | 24.73 kB | 
+
+                    | Initial total | 94.69 kB
+
+Application bundle generation complete. [1.568 seconds] - 2026-01-01T06:31:15.867Z
+
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Initial chunk files | Names | Raw size
+main.js             | main  | 69.96 kB | 
+
+Application bundle generation complete. [0.352 seconds] - 2026-01-01T06:31:27.027Z
+
+Component update sent to client(s).

@@ -23,26 +23,43 @@
         <div class="h-[1px] flex-1 bg-white/10"></div>
       </div>
 
-      <!-- Email Login -->
-      <div class="space-y-3">
+      <!-- Auth Form -->
+      <form (submit)="onSubmit(); $event.preventDefault()" class="space-y-3">
         <input
           type="email"
+          name="email"
           [(ngModel)]="email"
           placeholder="Enter your email"
+          required
           class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-slate-500 outline-none focus:border-blue-500/50 transition-colors"
         />
-        <button
-          (click)="loginWithEmail()"
-          [disabled]="loading()"
-          class="w-full btn-primary disabled:opacity-50"
-        >
-          {{ loading() ? 'Sending magic link...' : 'Send Magic Link' }}
+        <input
+          type="password"
+          name="password"
+          [(ngModel)]="password"
+          placeholder="Enter your password"
+          required
+          class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-slate-500 outline-none focus:border-blue-500/50 transition-colors"
+        />
+        <button type="submit" [disabled]="loading()" class="w-full btn-primary disabled:opacity-50">
+          {{ loading() ? 'Please wait...' : isRegisterMode() ? 'Sign Up' : 'Sign In' }}
         </button>
-      </div>
+      </form>
 
       <p *ngIf="message()" class="mt-4 text-green-400 text-sm animate-pulse">
         {{ message() }}
       </p>
+
+      <div class="mt-6">
+        <button
+          (click)="toggleMode()"
+          class="text-blue-400 hover:text-blue-300 text-sm transition-colors cursor-pointer"
+        >
+          {{
+            isRegisterMode() ? 'Already have an account? Sign In' : "Don't have an account? Sign Up"
+          }}
+        </button>
+      </div>
     </div>
 
     <p class="mt-8 text-slate-500 text-xs text-balance">

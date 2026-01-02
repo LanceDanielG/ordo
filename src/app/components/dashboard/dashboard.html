@@ -1,23 +1,26 @@
-<div class="min-h-screen bg-transparent transition-colors duration-500">
+<div class="min-h-screen transition-colors duration-500">
   <!-- Top Navigation -->
-  <nav class="border-b border-white/10 backdrop-blur-md bg-slate-900/50 sticky top-0 z-50">
-    <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+  <nav
+    class="border-b border-slate-200 dark:border-white/10 backdrop-blur-md bg-white/70 dark:bg-slate-900/50 sticky top-0 z-50"
+  >
+    <div class="max-w-[1400px] mx-auto px-6 h-16 flex items-center justify-between">
       <div class="flex items-center gap-3">
         <span
-          class="text-2xl font-bold bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent"
+          class="text-2xl font-black bg-gradient-to-r from-blue-500 to-indigo-500 bg-clip-text text-transparent"
         >
-          Ordo
+          ORDO
         </span>
-        <span class="hidden sm:block text-slate-500 text-sm border-l border-white/20 pl-3">
-          Dashboard
+        <div class="h-4 w-[1px] bg-slate-200 dark:bg-white/10 mx-2"></div>
+        <span class="text-slate-500 text-xs font-bold uppercase tracking-widest hidden sm:block">
+          Board View
         </span>
       </div>
 
-      <div class="flex items-center gap-2 sm:gap-4">
+      <div class="flex items-center gap-4">
+        <!-- Theme Toggle -->
         <button
           (click)="theme.toggleTheme()"
-          class="p-2 rounded-lg text-slate-400 hover:bg-white/5 transition-all outline-none"
-          [title]="theme.isDarkMode() ? 'Switch to Light Mode' : 'Switch to Dark Mode'"
+          class="p-2 rounded-xl text-slate-500 hover:bg-slate-100 dark:hover:bg-white/5 transition-all outline-none"
         >
           <svg
             *ngIf="theme.isDarkMode()"
@@ -51,43 +54,128 @@
           </svg>
         </button>
 
-        <div class="hidden sm:flex flex-col items-end mr-2">
-          <span class="text-white text-sm font-medium">{{ auth.user()?.email }}</span>
-          <span class="text-slate-500 text-[10px] uppercase tracking-tighter">Pro Member</span>
-        </div>
-
-        <button
-          (click)="auth.signOut()"
-          class="bg-white/5 hover:bg-red-500/10 hover:text-red-400 text-slate-400 p-2 rounded-lg transition-all border border-white/10"
-          title="Logout"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-5 w-5"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
+        <!-- User Profile -->
+        <div class="flex items-center gap-3 pl-4 border-l border-slate-200 dark:border-white/10">
+          <div class="hidden md:flex flex-col items-end">
+            <span
+              class="text-slate-900 dark:text-white text-sm font-bold"
+              >{{ (auth.user()?.email || 'User')?.split('@')?.[0] }}</span
+            >
+            <span class="text-blue-500 text-[10px] font-bold uppercase tracking-tighter"
+              >Gold Tier</span
+            >
+          </div>
+          <button
+            (click)="auth.signOut()"
+            class="p-2 text-slate-400 hover:text-red-500 transition-colors"
           >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
-            />
-          </svg>
-        </button>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
+              />
+            </svg>
+          </button>
+        </div>
       </div>
     </div>
   </nav>
 
-  <!-- Main Content -->
-  <main class="max-w-4xl mx-auto pt-12 pb-24 px-4">
-    <header class="mb-12 text-center sm:text-left">
-      <h2 class="text-4xl font-extrabold text-white mb-2">My Tasks</h2>
-      <p class="text-slate-400">{{ currentDate }}</p>
-    </header>
+  <!-- Content -->
+  <main class="max-w-[1400px] mx-auto p-6 lg:p-10">
+    <!-- Header/Quick Actions -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+      <div>
+        <h1
+          class="text-4xl lg:text-5xl font-black text-slate-900 dark:text-white mb-2 tracking-tight"
+        >
+          Welcome back.
+        </h1>
+        <p class="text-slate-500 font-medium">
+          {{ currentDate }} • {{ store.todos().length }} tasks total
+        </p>
+      </div>
+      <div class="w-full md:max-w-md">
+        <app-todo-input></app-todo-input>
+      </div>
+    </div>
 
-    <app-todo-input></app-todo-input>
-    <app-todo-list></app-todo-list>
+    <!-- Kanban Board -->
+    <div class="kanban-board" cdkDropListGroup>
+      <!-- Column: To Do -->
+      <div class="kanban-column">
+        <div class="column-header">
+          <h3 class="column-title"><span class="w-2 h-2 rounded-full bg-blue-500"></span>To Do</h3>
+          <span class="task-count">{{ store.todoList().length }}</span>
+        </div>
+        <div
+          cdkDropList
+          [cdkDropListData]="store.todoList()"
+          (cdkDropListDropped)="onDrop($event, 'todo')"
+          class="min-h-[400px]"
+        >
+          <app-todo-item
+            *ngFor="let todo of store.todoList()"
+            [todo]="todo"
+            cdkDrag
+            [cdkDragData]="todo"
+          ></app-todo-item>
+        </div>
+      </div>
+
+      <!-- Column: In Progress -->
+      <div class="kanban-column">
+        <div class="column-header">
+          <h3 class="column-title">
+            <span class="w-2 h-2 rounded-full bg-amber-500"></span>In Progress
+          </h3>
+          <span class="task-count">{{ store.inProgressList().length }}</span>
+        </div>
+        <div
+          cdkDropList
+          [cdkDropListData]="store.inProgressList()"
+          (cdkDropListDropped)="onDrop($event, 'in-progress')"
+          class="min-h-[400px]"
+        >
+          <app-todo-item
+            *ngFor="let todo of store.inProgressList()"
+            [todo]="todo"
+            cdkDrag
+            [cdkDragData]="todo"
+          ></app-todo-item>
+        </div>
+      </div>
+
+      <!-- Column: Done -->
+      <div class="kanban-column">
+        <div class="column-header">
+          <h3 class="column-title">
+            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>Done
+          </h3>
+          <span class="task-count">{{ store.doneList().length }}</span>
+        </div>
+        <div
+          cdkDropList
+          [cdkDropListData]="store.doneList()"
+          (cdkDropListDropped)="onDrop($event, 'done')"
+          class="min-h-[400px]"
+        >
+          <app-todo-item
+            *ngFor="let todo of store.doneList()"
+            [todo]="todo"
+            cdkDrag
+            [cdkDragData]="todo"
+          ></app-todo-item>
+        </div>
+      </div>
+    </div>
   </main>
 </div>

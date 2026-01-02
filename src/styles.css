@@ -3,13 +3,24 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --bg-gradient: radial-gradient(circle at top right, #f8fafc, #e2e8f0);
+    --text-primary: #1e293b;
+  }
+
+  :root.dark {
+    --bg-gradient: radial-gradient(circle at top right, #1e1e2f, #0f172a);
+    --text-primary: #f8fafc;
+  }
+
   * {
     @apply box-border m-0 p-0;
   }
 
   body {
-    @apply font-sans antialiased text-slate-50 min-h-screen overflow-x-hidden;
-    background: radial-gradient(circle at top right, #1e1e2f, #0f172a);
+    @apply font-sans antialiased min-h-screen overflow-x-hidden transition-colors duration-300;
+    color: var(--text-primary);
+    background: var(--bg-gradient);
   }
 
   input,
@@ -21,7 +32,7 @@
 
 @layer components {
   .glass-panel {
-    @apply bg-slate-900/70 backdrop-blur-xl border border-white/10 rounded-2xl shadow-glass;
+    @apply bg-white/70 dark:bg-slate-900/40 backdrop-blur-2xl border border-slate-200 dark:border-white/5 rounded-3xl shadow-glass;
   }
 
   .btn-primary {

@@ -1,6 +1,7 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Todo } from '../../models/todo.model';
+import { TodoStore } from '../../store/todo.store';
 
 @Component({
     selector: 'app-todo-item',
@@ -10,16 +11,15 @@ import { Todo } from '../../models/todo.model';
     styleUrl: './todo-item.scss'
 })
 export class TodoItemComponent {
+    private store = inject(TodoStore);
     @Input({ required: true }) todo!: Todo;
-    @Output() toggle = new EventEmitter<string>();
-    @Output() delete = new EventEmitter<string>();
 
     onToggle() {
-        this.toggle.emit(this.todo.id);
+        this.store.updateTodo(this.todo.id, { completed: !this.todo.completed });
     }
 
     onDelete(event: Event) {
         event.stopPropagation();
-        this.delete.emit(this.todo.id);
+        this.store.deleteTodo(this.todo.id);
     }
 }

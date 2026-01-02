@@ -1,22 +1,28 @@
-<div class="glass-panel p-4 mb-8 flex gap-4 flex-wrap items-center">
+<div class="relative group">
   <input
     type="text"
     [(ngModel)]="newTodoText"
     (keyup.enter)="addTodo()"
-    placeholder="What needs to be done?"
-    class="flex-1 bg-transparent border-none text-white text-xl min-w-[200px] placeholder:text-slate-400 outline-none"
+    placeholder="New task..."
+    class="w-full bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-2xl pl-5 pr-32 py-4 text-slate-900 dark:text-white text-lg placeholder:text-slate-400 outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500/50 transition-all shadow-sm"
   />
 
-  <div class="flex gap-2 items-center">
+  <div class="absolute right-2 top-2 bottom-2 flex gap-1">
     <select
       [(ngModel)]="selectedPriority"
-      class="bg-white/5 border border-white/10 text-white rounded-lg px-4 py-2 cursor-pointer outline-none appearance-none hover:bg-white/10 transition-colors"
+      class="bg-transparent text-slate-500 dark:text-slate-400 text-[10px] font-black uppercase tracking-widest px-2 cursor-pointer outline-none hover:text-blue-500 transition-colors appearance-none"
     >
-      <option value="low" class="bg-slate-800 text-white">Low</option>
-      <option value="medium" class="bg-slate-800 text-white">Medium</option>
-      <option value="high" class="bg-slate-800 text-white">High</option>
+      <option value="low">Low</option>
+      <option value="medium">Med</option>
+      <option value="high">High</option>
     </select>
 
-    <button class="btn-primary" (click)="addTodo()">Add</button>
+    <button
+      (click)="addTodo()"
+      [disabled]="!newTodoText.trim()"
+      class="bg-blue-500 hover:bg-blue-600 disabled:opacity-30 disabled:grayscale text-white px-5 rounded-xl font-bold text-sm transition-all shadow-lg shadow-blue-500/20 active:scale-95"
+    >
+      Add
+    </button>
   </div>
 </div>
