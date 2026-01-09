@@ -34,7 +34,9 @@
   box-sizing: border-box;
   border-radius: 1rem;
   z-index: 1000 !important;
+  overflow: hidden;
 }
+
 
 .cdk-drag-placeholder {
   @apply opacity-20 border-2 border-dashed border-blue-500 rounded-2xl mb-3;

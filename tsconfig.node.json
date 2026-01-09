@@ -1,0 +1,15 @@
+{
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+        "outDir": "./out-tsc/node",
+        "module": "esnext",
+        "moduleResolution": "bundler",
+        "types": [
+            "node"
+        ]
+    },
+    "include": [
+        "playwright.config.ts",
+        "tailwind.config.js"
+    ]
+}

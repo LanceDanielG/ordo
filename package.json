@@ -7,7 +7,8 @@
     "prebuild": "node ./scripts/set-env.js",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "e2e": "playwright test"
   },
   "prettier": {
     "printWidth": 100,
@@ -40,6 +41,8 @@
     "@angular/build": "^21.0.4",
     "@angular/cli": "^21.0.4",
     "@angular/compiler-cli": "^21.0.0",
+    "@playwright/test": "^1.57.0",
+    "@types/node": "^25.0.3",
     "autoprefixer": "^10.4.19",
     "jsdom": "^27.1.0",
     "postcss": "^8.4.38",

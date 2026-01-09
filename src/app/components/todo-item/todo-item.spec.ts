@@ -40,16 +40,33 @@ describe('TodoItemComponent', () => {
         expect(component).toBeTruthy();
     });
 
-    it('should call store.updateTodo when onToggle is called', () => {
-        component.onToggle();
-        expect(mockStore.updateTodo).toHaveBeenCalledWith('1', { completed: true });
+    it('should set confirmAction to complete when onToggleRequest is called for incomplete task', () => {
+        component.onToggleRequest();
+        expect(component.confirmAction).toBe('complete');
     });
 
-    it('should call store.deleteTodo when onDelete is called', () => {
-        const stopPropagationSpy = vi.fn();
-        component.onDelete({ stopPropagation: stopPropagationSpy } as any);
+    it('should set confirmAction to uncomplete when onToggleRequest is called for completed task', () => {
+        component.todo.completed = true;
+        component.onToggleRequest();
+        expect(component.confirmAction).toBe('uncomplete');
+    });
 
+    it('should set confirmAction to delete when onDeleteRequest is called', () => {
+        const stopPropagationSpy = vi.fn();
+        component.onDeleteRequest({ stopPropagation: stopPropagationSpy } as any);
         expect(stopPropagationSpy).toHaveBeenCalled();
+        expect(component.confirmAction).toBe('delete');
+    });
+
+    it('should call store.updateTodo when onConfirm is called for complete action', () => {
+        component.confirmAction = 'complete';
+        component.onConfirm();
+        expect(mockStore.updateTodo).toHaveBeenCalledWith('1', { completed: true, category: 'done' });
+    });
+
+    it('should call store.deleteTodo when onConfirm is called for delete action', () => {
+        component.confirmAction = 'delete';
+        component.onConfirm();
         expect(mockStore.deleteTodo).toHaveBeenCalledWith('1');
     });
 });

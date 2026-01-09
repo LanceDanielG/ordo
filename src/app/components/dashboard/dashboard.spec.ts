@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { DashboardComponent } from './dashboard';
 import { AuthService } from '../../services/auth.service';
 import { ThemeService } from '../../services/theme.service';
+import { TodoStore } from '../../store/todo.store';
 import { signal } from '@angular/core';
 
 describe('DashboardComponent', () => {
@@ -21,11 +22,20 @@ describe('DashboardComponent', () => {
             toggleTheme: vi.fn()
         };
 
+        const todoStoreMock = {
+            todos: signal([]),
+            todoList: signal([]),
+            inProgressList: signal([]),
+            doneList: signal([]),
+            moveTodo: vi.fn()
+        };
+
         await TestBed.configureTestingModule({
             imports: [DashboardComponent],
             providers: [
                 { provide: AuthService, useValue: authServiceMock },
-                { provide: ThemeService, useValue: themeServiceMock }
+                { provide: ThemeService, useValue: themeServiceMock },
+                { provide: TodoStore, useValue: todoStoreMock }
             ]
         }).compileComponents();
 

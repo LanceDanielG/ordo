@@ -11,7 +11,17 @@ export class SupabaseService {
     constructor() {
         const supabaseUrl = environment.supabaseUrl;
         const supabaseKey = environment.supabaseKey;
-        this.supabase = createClient(supabaseUrl, supabaseKey);
+
+        // Check if we are running in a test environment (Vitest)
+        const isTest = (globalThis as any).process?.env?.NODE_ENV === 'test';
+
+        this.supabase = createClient(supabaseUrl, supabaseKey, {
+            auth: {
+                persistSession: !isTest,
+                autoRefreshToken: !isTest,
+                detectSessionInUrl: !isTest
+            }
+        });
 
         // Connection Check
         this.supabase.from('todos').select('id', { count: 'exact', head: true })

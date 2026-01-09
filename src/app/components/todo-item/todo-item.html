@@ -18,7 +18,7 @@
     <!-- Actions -->
     <div class="flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
       <button
-        (click)="onToggle()"
+        (click)="onToggleRequest()"
         class="p-1.5 rounded-lg text-slate-400 hover:bg-blue-500/10 hover:text-blue-500 transition-all"
         [title]="todo.completed ? 'Mark as pending' : 'Mark as done'"
       >
@@ -38,7 +38,7 @@
         </svg>
       </button>
       <button
-        (click)="onDelete($event)"
+        (click)="onDeleteRequest($event)"
         class="p-1.5 rounded-lg text-slate-400 hover:bg-red-500/10 hover:text-red-500 transition-all"
         title="Delete task"
       >
@@ -78,3 +78,11 @@
     </div>
   </div>
 </div>
+
+<app-confirm-modal
+  *ngIf="confirmAction"
+  [title]="confirmTitle"
+  [message]="confirmMessage"
+  (onConfirm)="onConfirm()"
+  (onCancel)="onCancel()"
+></app-confirm-modal>

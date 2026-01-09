@@ -87,11 +87,18 @@ export class TodoStore {
     }
 
     async moveTodo(todoId: string, toCategory: TodoCategory, newPosition: number) {
+        const isDone = toCategory === 'done';
+
         // Sync UI immediately
         this.todosSignal.update(todos => {
             const list = todos.map(t => {
                 if (t.id === todoId) {
-                    return { ...t, category: toCategory, position: newPosition };
+                    return {
+                        ...t,
+                        category: toCategory,
+                        position: newPosition,
+                        completed: isDone
+                    };
                 }
                 return t;
             });
@@ -109,7 +116,11 @@ export class TodoStore {
             return list;
         });
 
-        await this.updateTodo(todoId, { category: toCategory, position: newPosition });
+        await this.updateTodo(todoId, {
+            category: toCategory,
+            position: newPosition,
+            completed: isDone
+        });
     }
 
     async deleteTodo(id: string) {
