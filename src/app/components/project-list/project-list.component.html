@@ -1,0 +1,36 @@
+<div class="project-list-container animate-in">
+  <div class="header">
+    <h3 class="text-xs font-black uppercase tracking-[0.2em] text-slate-400">Projects</h3>
+    <button class="add-btn shadow-sm" (click)="toggleAddForm()">
+      <span class="material-icons text-sm">{{ showAddForm() ? 'remove' : 'add' }}</span>
+    </button>
+  </div>
+
+  @if (showAddForm()) {
+  <div class="add-form glass-panel p-4 mb-6">
+    <input type="text" [(ngModel)]="newProjectName" (keyup.enter)="addProject()" placeholder="Project title..." autofocus 
+           class="w-full bg-slate-100 dark:bg-white/5 border-none rounded-xl px-4 py-3 text-sm mb-3 focus:ring-2 focus:ring-blue-500/20 transition-all"/>
+    <div class="form-actions">
+      <input type="color" [(ngModel)]="newProjectColor" title="Choose color" class="w-8 h-8 rounded-lg cursor-pointer border-none bg-transparent"/>
+      <button (click)="addProject()" [disabled]="!newProjectName().trim()" 
+              class="bg-blue-500 text-white px-4 py-2 rounded-xl text-xs font-bold hover:bg-blue-600 transition-all">Create</button>
+    </div>
+  </div>
+  }
+
+  <ul class="projects">
+    <li [class.active]="projectStore.selectedProjectId() === null" (click)="selectProject(null)" class="group">
+      <span class="color-dot all"></span>
+      <span class="name text-sm font-bold tracking-tight">All Tasks</span>
+    </li>
+    @for (project of projectStore.projects(); track project.id) {
+    <li [class.active]="projectStore.selectedProjectId() === project.id" (click)="selectProject(project.id)" class="group">
+      <span class="color-dot" [style.background-color]="project.color"></span>
+      <span class="name text-sm font-bold tracking-tight">{{ project.name }}</span>
+      <button class="delete-btn opacity-0 group-hover:opacity-100 transition-all" (click)="projectStore.deleteProject(project.id); $event.stopPropagation()">
+        <span class="material-icons text-xs">close</span>
+      </button>
+    </li>
+    }
+  </ul>
+</div>

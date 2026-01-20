@@ -1,0 +1,49 @@
+<div class="member-modal glass-panel h-animate">
+    <div class="modal-header">
+        <h2 class="text-xl font-black gradient-text">Project Members</h2>
+        <button class="close-btn" (click)="closeModal()">
+            <span class="material-icons">close</span>
+        </button>
+    </div>
+
+    <div class="modal-content">
+        <!-- Invite Section -->
+        <div class="invite-section">
+            <label class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-2 block">Invite Member</label>
+            <div class="input-group">
+                <input 
+                    type="email" 
+                    [(ngModel)]="newMemberEmail" 
+                    placeholder="Enter email address" 
+                    class="glass-input"
+                    (keyup.enter)="addMember()"
+                />
+                <button class="invite-btn" (click)="addMember()" [disabled]="!newMemberEmail.trim() || isAdding()">
+                    <span class="material-icons" *ngIf="!isAdding()">person_add</span>
+                    <span class="loader" *ngIf="isAdding()"></span>
+                </button>
+            </div>
+            <p class="error-text" *ngIf="errorMessage()">{{ errorMessage() }}</p>
+        </div>
+
+        <!-- Member List -->
+        <div class="members-list-section">
+            <label class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-3 block">
+                Current Members ({{ projectStore.currentMembers().length }})
+            </label>
+            
+            <div class="members-scroll">
+                <div class="member-item" *ngFor="let member of projectStore.currentMembers()">
+                    <div class="member-avatar">
+                        {{ (member.profiles.full_name || member.profiles.email).charAt(0).toUpperCase() }}
+                    </div>
+                    <div class="member-info">
+                        <span class="member-name">{{ member.profiles.full_name || 'Anonymous' }}</span>
+                        <span class="member-email">{{ member.profiles.email }}</span>
+                    </div>
+                    <div class="member-role tag">{{ member.role }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

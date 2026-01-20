@@ -9,5 +9,7 @@ export interface Todo {
     priority: Priority;
     category: TodoCategory;
     position: number;
+    project_id?: string;
+    assignee_id?: string;
     created_at: number | string;
 }

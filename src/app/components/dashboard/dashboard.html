@@ -1,181 +1,124 @@
-<div class="min-h-screen transition-colors duration-500">
-  <!-- Top Navigation -->
-  <nav
-    class="border-b border-slate-200 dark:border-white/10 backdrop-blur-md bg-white/70 dark:bg-slate-900/50 sticky top-0 z-50"
-  >
-    <div class="max-w-[1400px] mx-auto px-6 h-16 flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <span
-          class="text-2xl font-black bg-gradient-to-r from-blue-500 to-indigo-500 bg-clip-text text-transparent"
-        >
-          ORDO
-        </span>
-        <div class="h-4 w-[1px] bg-slate-200 dark:bg-white/10 mx-2"></div>
-        <span class="text-slate-500 text-xs font-bold uppercase tracking-widest hidden sm:block">
-          Board View
-        </span>
-      </div>
+<div class="app-layout">
+    <app-sidebar></app-sidebar>
 
-      <div class="flex items-center gap-4">
-        <!-- Theme Toggle -->
-        <button
-          (click)="theme.toggleTheme()"
-          class="p-2 rounded-xl text-slate-500 hover:bg-slate-100 dark:hover:bg-white/5 transition-all outline-none"
-        >
-          <svg
-            *ngIf="theme.isDarkMode()"
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-5 w-5"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M12 3v1m0 16v1m9-9h-1M4 9H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-            />
-          </svg>
-          <svg
-            *ngIf="!theme.isDarkMode()"
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-5 w-5"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
-            />
-          </svg>
-        </button>
+    <main class="main-content">
+        <header class="dashboard-header h-animate">
+            <div class="header-left">
+                <h1 class="text-3xl font-black gradient-text">
+                    {{ projectStore.selectedProject()?.name || 'My Tasks' }}
+                </h1>
+                <p class="text-slate-500 font-medium">
+                    {{ projectStore.selectedProject()?.description || 'Manage your work with precision' }}
+                </p>
+            </div>
+            
+            <div class="header-right">
+                <!-- User Avatars/Team -->
+                <div class="team-avatars">
+                    <div class="avatar glass" *ngFor="let member of projectStore.currentMembers().slice(0, 3)" [title]="member.profiles.full_name || member.profiles.email">
+                        {{ (member.profiles.full_name || member.profiles.email).charAt(0).toUpperCase() }}
+                    </div>
+                    <button class="add-member-btn glass" *ngIf="projectStore.selectedProject()" (click)="toggleMemberManager()">
+                        <span class="material-icons">person_add</span>
+                    </button>
+                    
+                    <!-- Member Manager Modal Overlay -->
+                    <div class="modal-overlay" *ngIf="showMemberManager()" (click)="toggleMemberManager()">
+                        <app-member-management (click)="$event.stopPropagation()" (onClose)="toggleMemberManager()"></app-member-management>
+                    </div>
+                </div>
 
-        <!-- User Profile -->
-        <div class="flex items-center gap-3 pl-4 border-l border-slate-200 dark:border-white/10">
-          <div class="hidden md:flex flex-col items-end">
-            <span
-              class="text-slate-900 dark:text-white text-sm font-bold"
-              >{{ (auth.user()?.email || 'User')?.split('@')?.[0] }}</span
-            >
-            <span class="text-blue-500 text-[10px] font-bold uppercase tracking-tighter"
-              >Gold Tier</span
-            >
-          </div>
-          <button
-            (click)="auth.signOut()"
-            class="p-2 text-slate-400 hover:text-red-500 transition-colors"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
-              />
-            </svg>
-          </button>
-        </div>
-      </div>
-    </div>
-  </nav>
+                <div class="view-controls glass">
+                    <button class="control-btn" [class.active]="viewMode() === 'board'" (click)="setViewMode('board')" title="Board View">
+                        <span class="material-icons">view_kanban</span>
+                    </button>
+                    <button class="control-btn" [class.active]="viewMode() === 'list'" (click)="setViewMode('list')" title="List View">
+                        <span class="material-icons">format_list_bulleted</span>
+                    </button>
+                </div>
+                
+                <button 
+                (click)="theme.toggleTheme()" 
+                class="theme-toggle glass"
+                [class.dark]="theme.isDarkMode()">
+                <div class="toggle-track">
+                    <span class="material-icons sun">light_mode</span>
+                    <span class="material-icons moon">dark_mode</span>
+                    <div class="toggle-thumb"></div>
+                </div>
+            </button>
+            </div>
+        </header>
 
-  <!-- Content -->
-  <main class="max-w-[1400px] mx-auto p-6 lg:p-10">
-    <!-- Header/Quick Actions -->
-    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
-      <div>
-        <h1
-          class="text-4xl lg:text-5xl font-black text-slate-900 dark:text-white mb-2 tracking-tight"
-        >
-          Welcome back.
-        </h1>
-        <p class="text-slate-500 font-medium">
-          {{ currentDate }} • {{ store.todos().length }} tasks total
-        </p>
-      </div>
-      <div class="w-full md:max-w-md">
-        <app-todo-input></app-todo-input>
-      </div>
-    </div>
+        <section class="quick-input-section h-animate" style="animation-delay: 0.1s;">
+            <app-todo-input></app-todo-input>
+        </section>
 
-    <!-- Kanban Board -->
-    <div class="kanban-board" cdkDropListGroup>
-      <!-- Column: To Do -->
-      <div class="kanban-column">
-        <div class="column-header">
-          <h3 class="column-title"><span class="w-2 h-2 rounded-full bg-blue-500"></span>To Do</h3>
-          <span class="task-count">{{ store.todoList().length }}</span>
-        </div>
-        <div
-          cdkDropList
-          [cdkDropListData]="store.todoList()"
-          (cdkDropListDropped)="onDrop($event, 'todo')"
-          class="min-h-[400px]"
-        >
-          <app-todo-item
-            *ngFor="let todo of store.todoList()"
-            [todo]="todo"
-            cdkDrag
-            [cdkDragData]="todo"
-          ></app-todo-item>
-        </div>
-      </div>
+        <!-- Views Area -->
+        <div class="board-viewport h-animate" style="animation-delay: 0.2s;" *ngIf="viewMode() === 'board'">
+            <div class="kanban-wrapper" cdkDropListGroup>
+                <!-- To Do Column -->
+                <div class="kanban-column glass-panel">
+                    <div class="column-header">
+                        <div class="header-title">
+                            <span class="count">{{ todoStore.todoList().length }}</span>
+                            <h3>Todo</h3>
+                        </div>
+                        <button class="more-btn" (click)="clearColumn('todo')">
+                            <span class="material-icons">delete_sweep</span>
+                        </button>
+                    </div>
+                    <app-todo-list category="todo"></app-todo-list>
+                </div>
 
-      <!-- Column: In Progress -->
-      <div class="kanban-column">
-        <div class="column-header">
-          <h3 class="column-title">
-            <span class="w-2 h-2 rounded-full bg-amber-500"></span>In Progress
-          </h3>
-          <span class="task-count">{{ store.inProgressList().length }}</span>
-        </div>
-        <div
-          cdkDropList
-          [cdkDropListData]="store.inProgressList()"
-          (cdkDropListDropped)="onDrop($event, 'in-progress')"
-          class="min-h-[400px]"
-        >
-          <app-todo-item
-            *ngFor="let todo of store.inProgressList()"
-            [todo]="todo"
-            cdkDrag
-            [cdkDragData]="todo"
-          ></app-todo-item>
-        </div>
-      </div>
+                <!-- In Progress Column -->
+                <div class="kanban-column glass-panel">
+                    <div class="column-header">
+                        <div class="header-title">
+                            <span class="count in-progress">{{ todoStore.inProgressList().length }}</span>
+                            <h3>In Progress</h3>
+                        </div>
+                        <button class="more-btn" (click)="clearColumn('in-progress')">
+                            <span class="material-icons">delete_sweep</span>
+                        </button>
+                    </div>
+                    <app-todo-list category="in-progress"></app-todo-list>
+                </div>
 
-      <!-- Column: Done -->
-      <div class="kanban-column">
-        <div class="column-header">
-          <h3 class="column-title">
-            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>Done
-          </h3>
-          <span class="task-count">{{ store.doneList().length }}</span>
+                <!-- Done Column -->
+                <div class="kanban-column glass-panel">
+                    <div class="column-header">
+                        <div class="header-title">
+                            <span class="count done">{{ todoStore.doneList().length }}</span>
+                            <h3>Done</h3>
+                        </div>
+                        <button class="more-btn" (click)="clearColumn('done')">
+                            <span class="material-icons">delete_sweep</span>
+                        </button>
+                    </div>
+                    <app-todo-list category="done"></app-todo-list>
+                </div>
+
+                <!-- Add Column Placeholder -->
+                <div class="kanban-column add-column" (click)="addColumn()">
+                    <button class="add-column-btn">
+                        <span class="material-icons">add</span>
+                        <span>Add Column</span>
+                    </button>
+                </div>
+            </div>
         </div>
-        <div
-          cdkDropList
-          [cdkDropListData]="store.doneList()"
-          (cdkDropListDropped)="onDrop($event, 'done')"
-          class="min-h-[400px]"
-        >
-          <app-todo-item
-            *ngFor="let todo of store.doneList()"
-            [todo]="todo"
-            cdkDrag
-            [cdkDragData]="todo"
-          ></app-todo-item>
+        <!-- List View Area -->
+        <div class="list-viewport h-animate" style="animation-delay: 0.2s;" *ngIf="viewMode() === 'list'">
+            <div class="container mx-auto">
+                <div class="glass-panel p-6">
+                    <app-todo-list category="todo"></app-todo-list>
+                    <app-todo-list category="in-progress"></app-todo-list>
+                    <app-todo-list category="done"></app-todo-list>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </main>
+    </main>
+
+    <app-toast></app-toast>
 </div>

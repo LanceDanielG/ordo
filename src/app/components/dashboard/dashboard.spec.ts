@@ -1,15 +1,23 @@
+import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { DashboardComponent } from './dashboard';
 import { AuthService } from '../../services/auth.service';
 import { ThemeService } from '../../services/theme.service';
 import { TodoStore } from '../../store/todo.store';
 import { signal } from '@angular/core';
+import { provideRouter } from '@angular/router';
+
+import { ProjectStore } from '../../store/project.store';
+import { UserStore } from '../../store/user.store';
+import { SidebarComponent } from '../sidebar/sidebar.component';
+import { TodoListComponent } from '../todo-list/todo-list';
 
 describe('DashboardComponent', () => {
     let component: DashboardComponent;
     let fixture: ComponentFixture<DashboardComponent>;
     let authServiceMock: any;
     let themeServiceMock: any;
+    let projectStoreMock: any;
 
     beforeEach(async () => {
         authServiceMock = {
@@ -22,8 +30,21 @@ describe('DashboardComponent', () => {
             toggleTheme: vi.fn()
         };
 
+        projectStoreMock = {
+            projects: signal([]),
+            selectedProjectId: signal(null),
+            selectedProject: signal(null),
+            selectProject: vi.fn(),
+            currentMembers: signal([])
+        };
+
+        const userStoreMock = {
+            profiles: signal([])
+        };
+
         const todoStoreMock = {
             todos: signal([]),
+            filteredTodos: signal([]),
             todoList: signal([]),
             inProgressList: signal([]),
             doneList: signal([]),
@@ -35,7 +56,10 @@ describe('DashboardComponent', () => {
             providers: [
                 { provide: AuthService, useValue: authServiceMock },
                 { provide: ThemeService, useValue: themeServiceMock },
-                { provide: TodoStore, useValue: todoStoreMock }
+                { provide: TodoStore, useValue: todoStoreMock },
+                { provide: ProjectStore, useValue: projectStoreMock },
+                { provide: UserStore, useValue: userStoreMock },
+                provideRouter([])
             ]
         }).compileComponents();
 

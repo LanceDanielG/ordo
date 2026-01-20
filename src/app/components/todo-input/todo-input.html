@@ -1,28 +1,40 @@
-<div class="relative group">
-  <input
-    type="text"
-    [(ngModel)]="newTodoText"
-    (keyup.enter)="addTodo()"
-    placeholder="New task..."
-    class="w-full bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-2xl pl-5 pr-32 py-4 text-slate-900 dark:text-white text-lg placeholder:text-slate-400 outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500/50 transition-all shadow-sm"
-  />
+<div class="input-card glass h-animate">
+    <div class="input-wrapper">
+        <input 
+            type="text" 
+            [(ngModel)]="newTodoText" 
+            (keyup.enter)="addTodo()"
+            placeholder="What needs to be done?"
+            class="main-input"
+        />
+        
+        <div class="input-actions">
+            <!-- Project Selection -->
+            <select [(ngModel)]="selectedProjectId" (change)="projectStore.selectProject($any($event.target).value)" class="glass-select">
+                <option [value]="null">No Project</option>
+                <option *ngFor="let project of projectStore.projects()" [value]="project.id">
+                    {{ project.name }}
+                </option>
+            </select>
 
-  <div class="absolute right-2 top-2 bottom-2 flex gap-1">
-    <select
-      [(ngModel)]="selectedPriority"
-      class="bg-transparent text-slate-500 dark:text-slate-400 text-[10px] font-black uppercase tracking-widest px-2 cursor-pointer outline-none hover:text-blue-500 transition-colors appearance-none"
-    >
-      <option value="low">Low</option>
-      <option value="medium">Med</option>
-      <option value="high">High</option>
-    </select>
+            <!-- Assignee Selection -->
+            <select [(ngModel)]="selectedAssigneeId" class="glass-select">
+                <option [value]="null">Unassigned</option>
+                <option *ngFor="let member of projectStore.currentMembers()" [value]="member.user_id">
+                    Assign: {{ member.profiles.full_name || member.profiles.email }}
+                </option>
+            </select>
 
-    <button
-      (click)="addTodo()"
-      [disabled]="!newTodoText.trim()"
-      class="bg-blue-500 hover:bg-blue-600 disabled:opacity-30 disabled:grayscale text-white px-5 rounded-xl font-bold text-sm transition-all shadow-lg shadow-blue-500/20 active:scale-95"
-    >
-      Add
-    </button>
-  </div>
+            <!-- Priority -->
+            <select [(ngModel)]="selectedPriority" class="glass-select" [ngClass]="selectedPriority">
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+            </select>
+
+            <button class="add-btn" (click)="addTodo()" [disabled]="!newTodoText.trim()">
+                <span class="material-icons">add</span>
+            </button>
+        </div>
+    </div>
 </div>

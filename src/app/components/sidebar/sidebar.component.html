@@ -1,0 +1,47 @@
+<aside class="sidebar-container" [class.collapsed]="isCollapsed()">
+    <div class="sidebar-header">
+        <div class="logo">
+            <div class="logo-icon glass">O</div>
+            <span class="logo-text" *ngIf="!isCollapsed()">Ordo</span>
+        </div>
+        <button class="collapse-btn" (click)="toggleCollapse()">
+            <span class="material-icons">{{ isCollapsed() ? 'chevron_right' : 'chevron_left' }}</span>
+        </button>
+    </div>
+
+    <nav class="sidebar-nav">
+        <a [routerLink]="['/dashboard']" routerLinkActive="active" class="nav-item glass" title="Dashboard">
+            <span class="material-icons">dashboard</span>
+            <span class="nav-text" *ngIf="!isCollapsed()">Dashboard</span>
+        </a>
+        <a href="#" (click)="navigateToComingSoon($event, 'Projects')" class="nav-item glass" title="Projects">
+            <span class="material-icons">assignment</span>
+            <span class="nav-text" *ngIf="!isCollapsed()">Projects</span>
+        </a>
+        <a href="#" (click)="navigateToComingSoon($event, 'Boards')" class="nav-item glass" title="Boards">
+            <span class="material-icons">view_kanban</span>
+            <span class="nav-text" *ngIf="!isCollapsed()">Boards</span>
+        </a>
+        <div class="nav-spacer"></div>
+        <a href="#" (click)="navigateToComingSoon($event, 'Settings')" class="nav-item glass" title="Settings">
+            <span class="material-icons">settings</span>
+            <span class="nav-text" *ngIf="!isCollapsed()">Settings</span>
+        </a>
+    </nav>
+
+    <div class="sidebar-footer">
+        <div class="user-info" *ngIf="!isCollapsed()">
+            <div class="avatar glass">
+                {{ (auth.user()?.email || '?').charAt(0).toUpperCase() }}
+            </div>
+            <div class="details">
+                <span class="name">{{ auth.user()?.email?.split('@')?.[0] }}</span>
+                <span class="status">Online</span>
+            </div>
+        </div>
+        <button class="logout-btn nav-item glass" (click)="logout()" title="Logout">
+            <span class="material-icons">logout</span>
+            <span class="nav-text" *ngIf="!isCollapsed()">Logout</span>
+        </button>
+    </div>
+</aside>

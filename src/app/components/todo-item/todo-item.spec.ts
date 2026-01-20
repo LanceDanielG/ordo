@@ -1,12 +1,18 @@
+import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { TodoItemComponent } from './todo-item';
 import { Todo } from '../../models/todo.model';
 import { TodoStore } from '../../store/todo.store';
+import { ProjectStore } from '../../store/project.store';
+import { UserStore } from '../../store/user.store';
+import { signal } from '@angular/core';
 
 describe('TodoItemComponent', () => {
     let component: TodoItemComponent;
     let fixture: ComponentFixture<TodoItemComponent>;
     let mockStore: any;
+    let mockProjectStore: any;
+    let mockUserStore: any;
 
     const mockTodo: Todo = {
         id: '1',
@@ -15,6 +21,7 @@ describe('TodoItemComponent', () => {
         completed: false,
         priority: 'medium',
         category: 'todo',
+        project_id: 'project-1',
         position: 0,
         created_at: Date.now()
     };
@@ -25,9 +32,24 @@ describe('TodoItemComponent', () => {
             deleteTodo: vi.fn()
         };
 
+        mockProjectStore = {
+            projects: signal([
+                { id: 'project-1', name: 'Test Project', color: '#ff0000' }
+            ]),
+            selectedProjectId: signal(null)
+        };
+
+        mockUserStore = {
+            profiles: signal([])
+        };
+
         await TestBed.configureTestingModule({
             imports: [TodoItemComponent],
-            providers: [{ provide: TodoStore, useValue: mockStore }]
+            providers: [
+                { provide: TodoStore, useValue: mockStore },
+                { provide: ProjectStore, useValue: mockProjectStore },
+                { provide: UserStore, useValue: mockUserStore }
+            ]
         }).compileComponents();
 
         fixture = TestBed.createComponent(TodoItemComponent);

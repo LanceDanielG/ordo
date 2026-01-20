@@ -1,19 +1,12 @@
-@use "sass:map";
-
 .kanban-board {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  display: flex;
   gap: 1.5rem;
   align-items: start;
 }
 
 .kanban-column {
-  @apply glass-panel flex flex-col min-h-[500px] p-4 transition-all duration-300;
-  background: rgba(var(--column-bg, 30, 41, 59), 0.3);
-  
-  &.cdk-drop-list-dragging .todo-item {
-    transition: none;
-  }
+  @apply flex flex-col min-h-[500px] transition-all duration-300;
+  // Use global .glass or .glass-panel from styles.css
 }
 
 .column-header {
@@ -22,11 +15,11 @@
 
 .column-title {
   @apply text-sm font-bold uppercase tracking-widest flex items-center gap-2;
-  color: var(--text-primary);
+  color: var(--text-base);
 }
 
 .task-count {
-  @apply text-[10px] bg-white/10 px-2 py-0.5 rounded-full font-mono;
+  @apply text-[10px] bg-black/5 dark:bg-white/10 px-2 py-0.5 rounded-full font-mono;
 }
 
 .cdk-drag-preview {
@@ -36,7 +29,6 @@
   z-index: 1000 !important;
   overflow: hidden;
 }
-
 
 .cdk-drag-placeholder {
   @apply opacity-20 border-2 border-dashed border-blue-500 rounded-2xl mb-3;

@@ -1,20 +1,36 @@
 import { Component, Input, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { CdkDrag } from '@angular/cdk/drag-drop';
 import { Todo } from '../../models/todo.model';
 import { TodoStore } from '../../store/todo.store';
-
-import { ConfirmModalComponent } from '../common/confirm-modal/confirm-modal.component';
+import { ProjectStore } from '../../store/project.store';
+import { UserStore } from '../../store/user.store';
 
 @Component({
     selector: 'app-todo-item',
     standalone: true,
-    imports: [CommonModule, ConfirmModalComponent],
+    imports: [CommonModule, FormsModule, CdkDrag],
     templateUrl: './todo-item.html',
     styleUrl: './todo-item.scss'
 })
 export class TodoItemComponent {
-    private store = inject(TodoStore);
+    store = inject(TodoStore);
+    projectStore = inject(ProjectStore);
+    userStore = inject(UserStore);
     @Input({ required: true }) todo!: Todo;
+
+    get project() {
+        return this.projectStore.projects().find(p => p.id === this.todo.project_id);
+    }
+
+    get assignee() {
+        return this.userStore.profiles().find(p => p.id === this.todo.assignee_id);
+    }
+
+    moveToProject(projectId: string | null) {
+        this.store.updateTodo(this.todo.id, { project_id: projectId || undefined });
+    }
 
     confirmAction: 'complete' | 'uncomplete' | 'delete' | null = null;
 
